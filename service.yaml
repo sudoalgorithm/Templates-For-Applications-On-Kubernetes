@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: <service_name>
+  labels:
+    app: <application_name_same_as_in_deployment>
+spec:
+  type: NodePort
+  ports:
+  - port: <port_where_you_want_to_expose>
+    targetPort: <target_container_port>
+    nodePort: <specify_node_port>
+  selector:
+    app: <application_name_same_as_in_deployment>
+
