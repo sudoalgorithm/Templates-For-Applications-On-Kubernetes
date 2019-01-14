@@ -10,7 +10,7 @@ spec:
         app: <application_name>
     spec:
       containers:
-      - name: <application_name>
+      - name: <container_name>
         image: <docker_image_reference>
         ports:
         - containerPort: <container_port>

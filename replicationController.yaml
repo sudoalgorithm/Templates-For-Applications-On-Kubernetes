@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: <replication_controller_name>
+  labels:
+    name: <application_name>
+spec:
+  replicas: <replica_set>
+  selector:
+    name: <application_name>
+  template:
+    metadata:
+      labels:
+        name: <application_name>
+    spec:
+      containers:
+      - name: <container_name>
+        image: <contianer_image_reference>
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+          # If your cluster config does not include a dns service, then to
+          # instead access environment variables to find service host
+          # info, comment out the 'value: dns' line above, and uncomment the
+          # line below.
+          # value: env
+        ports:
+        - containerPort: <container_port>
